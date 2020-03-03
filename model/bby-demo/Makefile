@@ -1,6 +1,6 @@
 LOCAL_SERVICE_PORT=5500
 IMAGE_NAME=127.0.0.1:5000/vdinesh1990/bby-demo
-MODEL_VERSION=v1
+MODEL_VERSION=v2
 
 watch_docker:
 	@watch -n 1 'docker ps -a'

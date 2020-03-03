@@ -1,7 +1,7 @@
 BUILD_WORKFLOW=build-image-and-push-using-docksock-wf.json
 MODEL_NAME=bby-demo
-MODEL_VERSION=v1
-SEQ_HASH=10d05d67
+MODEL_VERSION=v2
+SEQ_HASH=6db3deeb
 
 get_pods:
 	/bin/kubectl get pods -n default
