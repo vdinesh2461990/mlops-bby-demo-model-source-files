@@ -1,0 +1,15 @@
+BUILD_WORKFLOW=build-image-and-push-using-docksock-wf.json
+MODEL_NAME=bby-demo
+MODEL_VERSION=v1
+SEQ_HASH=10d05d67
+
+get_pods:
+	/bin/kubectl get pods -n default
+
+do_build:
+	@cat $(BUILD_WORKFLOW) | sed \
+	        -e "s/%MODEL_NAME%/${MODEL_NAME}/" \
+		-e 's/%MODEL_VERSION%/$(MODEL_VERSION)/' \
+		-e 's/%SEQ_HASH%/$(SEQ_HASH)/' \
+		-e "s/%GITHUB_USER%/${GITHUB_USER}/" \
+		-e "s/%GITHUB_TOKEN%/${GITHUB_TOKEN}/" | /bin/kubectl -n default create -f -
